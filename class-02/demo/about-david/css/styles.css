@@ -24,6 +24,7 @@ main {
   border-top: solid;
   border-bottom: solid;
   text-align: justify;
+  /* background-image: url(../img/headshot.jpg); */
 }
 
 p {
@@ -57,4 +58,8 @@ ul {
 
 ol {
   list-style: decimal;
+}
+
+img {
+  border-radius: 18px;
 }
