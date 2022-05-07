@@ -15,11 +15,19 @@ footer {
   padding-bottom: 0;
 }
 
+header > nav ul {
+  display: inline-block;
+  list-style: none;
+}
+
 main {
-  margin-top: 10px;
+  margin: 10px;
+  margin: 10px auto;
+  /* margin: 10px 20px 30px auto; */
+  /* margin-top: 10px;
   margin-bottom: 10px;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto; */
   width: 450px;
   border-top: solid;
   border-bottom: solid;
@@ -52,13 +60,35 @@ footer {
 }
 
 ul {
-  list-style: circle;
+  /* list-style: circle; */
 }
 
 ol {
   list-style: decimal;
 }
 
+ol ol {
+  list-style: upper-roman;
+}
+
+ol ol ol {
+  list-style: lower-roman;
+}
+
 img {
   border-radius: 18px;
+}
+
+#contact_phone {
+  background-color: aqua;
+}
+
+.fancy {
+  color: maroon;
+  font-stretch: extra-condensed;
+  text-decoration: underline;
+}
+
+.gothic {
+  font-weight: bolder;
 }

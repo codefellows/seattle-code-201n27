@@ -9,11 +9,23 @@
   <link rel="stylesheet" href="./css/styles.css" />
 </head>
 <body>
-  <header><h1>About David Souther</h1></header>
+  <header>
+    <nav>
+      <ul>
+        <li>
+          <h1>About David Souther</h1>
+        </li>
+      </ul>
+      <ul>
+        <li id="contact_phone">Phone</li>
+        <li>EMail</li>
+      </ul>
+    </nav>
+  </header>
 
   <main>
     <p>David Souther is a software engineer & instructor at Code Fellows.</p>
-    <figure>
+    <figure class="fancy">
       <img src="./img/headshot.jpg" width="200px" height="200px" />
       <figcaption>David Souther's Headshot </figcaption>
     </figure>
@@ -21,16 +33,32 @@
     <h2>Where has he worked</h2>
     <ul>
       <li>Novus Partners</li>
-      <li>The New York Times</li>
-      <li>Google</li>
-      <li>SpaceX - Starlink</li>
+      <li class="gothic">The New York Times</li>
+      <li>Google
+        <ul>
+          <li>Shopping</li>
+          <li>Cloud</li>
+        </ul>
+      </li>
+      <li class="fancy">SpaceX - Starlink</li>
     </ul>
     <h2>Who are his pets?</h2>
     <ol>
-      <li>Greylien</li>
+      <li class="gothic fancy">Greylien</li>
       <li>Oliver</li>
       <li>Pippin</li>
-      <li>...</li>
+      <li>Kishka
+        <ol>
+          <li>Nova</li>
+          <li>Misha<div>
+            <ol>
+              <li>Panghur</li>
+              <li>Kikashi</li>
+            </ol>
+          </div>
+          </li>
+        </ol>
+      </li>
     </ol>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   </main>
