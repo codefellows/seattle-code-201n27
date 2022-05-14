@@ -1,0 +1,56 @@
+h1 {
+  margin: 10px;
+}
+
+h1:nth-of-type(2) {
+  font-family: sans-serif;
+}
+
+li:first-of-type {
+  font-weight: bold;
+}
+
+li:last-of-type {
+  background-color: antiquewhite;
+}
+
+li:nth-of-type(even) {
+  background-color: #eee;
+}
+
+li:nth-of-type(odd) {
+  background-color: aliceblue;
+}
+
+body > :first-child {
+  background-color: red;
+}
+
+h2 {
+  margin: 0.5em;
+  font-family: sans-serif;
+}
+
+p {
+  margin: 0.5em 1em;
+  text-transform: capitalize;
+  line-height: 1.8em;
+  letter-spacing: 8px;
+  word-spacing: 12px;
+  /* background-color: red; */
+}
+
+u {
+  text-decoration: green wavy underline;
+  /* background-color: #7fff00; */
+  background-color: hsl(100deg, 90%, 80%);
+}
+
+i {
+  font-style: italic;
+  background-color: rgba(127, 255, 0, 40%);
+}
+
+em {
+  font-style: oblique;
+}
