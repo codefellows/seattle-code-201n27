@@ -71,12 +71,28 @@ Test this function by hand in the console to get it working, and when you think 
 let testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) {
-  //eslint-disable-line
+  // a + b + c
+  // sum(a, sum(b, c))
+  // sum(a, sum(b, c)[0])[0]
+  // sum(sumArr[0], sum(sumArr[1], sumArr[2])[0])[0];
+
+  let a = sumArr[0];
+  let b = sumArr[1];
+  let c = sumArr[2];
+  console.log("a, b, c", a, b, c);
+
+  let bc = sum(b, c);
+  console.log("bc", bc);
+
+  let abc = sum(a, bc[0]);
+  console.log("abc", abc);
+
+  return [abc, ""];
 }
 
 // Here is the test for sumArray(); uncomment it to run it
 
-// testSumArray(testArray);
+testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -121,6 +137,10 @@ let testDynamicArray = [1, 2, 3, 4, 5]; //eslint-disable-line
 
 function multiplyAnyArray(dynamicArray) {
   //eslint-disable-line
+  // The secret:
+  // Start your "accumulator" or "gatherer" or "running variable" with dynamicArray[0]
+  // Iterate with the index starting at 1, and going to the length of the array
+  // multiply the "running variable" with dynamic array at the index
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
