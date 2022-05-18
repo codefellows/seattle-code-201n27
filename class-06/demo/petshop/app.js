@@ -192,13 +192,13 @@ function render(pet) {
   const outerDl = document.createElement("dl");
 
   // name, species, age, color, fixed
-  const petNameDd = document.createElement("dt");
-  petNameDd.innerText = "Name";
-  outerDl.appendChild(petNameDd);
-
-  const petNameDt = document.createElement("dd");
-  petNameDt.innerText = pet.name;
+  const petNameDt = document.createElement("dt");
+  petNameDt.innerText = "Name";
   outerDl.appendChild(petNameDt);
+
+  const petNameDd = document.createElement("dd");
+  petNameDd.innerText = pet.name;
+  outerDl.appendChild(petNameDd);
 
   const petSpeciesDt = document.createElement("dt");
   petSpeciesDt.innerText = "Species";
