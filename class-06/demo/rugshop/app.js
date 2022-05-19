@@ -1,7 +1,22 @@
 // From class 4
 
-const RUG_AREA_PRICE = 5;
-const RUG_FRINGE_PRICE = 0.75;
+let RUG_AREA_PRICE = 5;
+let RUG_FRINGE_PRICE = 0.75;
+
+// What if the price is random!?
+// Area price between 4 and 9
+// Fringe price between .5 and 2.2
+
+function randBetween(min, max) {
+  return min + Math.random() * (max - min);
+}
+
+RUG_AREA_PRICE = randBetween(4, 9);
+console.log(RUG_AREA_PRICE);
+RUG_AREA_PRICE = Math.floor(RUG_AREA_PRICE);
+
+RUG_FRINGE_PRICE = randBetween(0.5, 2.2);
+console.log(RUG_AREA_PRICE, RUG_FRINGE_PRICE);
 
 function squareRugPrice(length, fringe) {
   let area = length * length;
