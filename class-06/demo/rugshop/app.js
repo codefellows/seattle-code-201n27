@@ -76,21 +76,23 @@ let orders = [
     size: 12,
   },
 ];
-console.log(orders);
 
 // Calculate prices
+let total = 0;
 for (let i = 0; i < orders.length; i++) {
   let order = orders[i];
 
   order.price = squareRugPrice(order.size, order.fringe);
+  total += order.price;
 }
 
 console.log(orders);
+console.log(total);
 
 // render
 // 1. Create Element
 // 2. innerText (or repeat 1 through 3 for the child)
-// 3. Append Child
+// 3. a) find parent b) Append Child
 
 for (let i = 0; i < orders.length; i++) {
   let order = orders[i];
@@ -99,3 +101,7 @@ for (let i = 0; i < orders.length; i++) {
   orderLi.innerText = `${order.name} ordered a rug size ${order.size} with fringe ${order.fringe}, it costs ${order.price}`;
   document.getElementById("orders").appendChild(orderLi);
 }
+
+let orderTotal = document.createElement("li");
+orderTotal.innerText = `Order Totals: ${total}`;
+document.getElementById("orders")?.appendChild(orderTotal);
