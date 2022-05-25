@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Monoton&family=Permanent+Marker&display=swap");
+
 html {
   font-size: 10pt;
 }
@@ -41,7 +43,8 @@ h2 {
 
 h1,
 h2 {
-  font-weight: bold;
+  font-weight: 400;
+  font-family: Monoton, sans-serif;
   margin-top: 10px;
   margin-bottom: 5px;
 }
@@ -57,6 +60,10 @@ ul {
 
 ol {
   list-style: decimal;
+}
+
+li {
+  font-family: "JetBrains Mono", monospace;
 }
 
 img {
