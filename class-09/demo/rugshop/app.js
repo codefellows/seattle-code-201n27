@@ -93,12 +93,20 @@ let orders = [
 // 2. innerText (or repeat 1 through 3 for the child)
 // 3. a) find parent b) Append Child
 
+function renderOrder(order) {
+  const price = squareRugPrice(order.size, order.fringe);
+
+  let orderLi = document.createElement("li");
+  orderLi.innerText = `${order.name} ordered a rug size ${
+    order.size
+  } with fringe ${order.fringe}, it costs \$${price.toFixed(2)}`;
+  document.getElementById("orders")?.appendChild(orderLi);
+}
+
 for (let i = 0; i < orders.length; i++) {
   let order = orders[i];
 
-  let orderLi = document.createElement("li");
-  orderLi.innerText = `${order.name} ordered a rug size ${order.size} with fringe ${order.fringe}, it costs ${order.price}`;
-  document.getElementById("orders").appendChild(orderLi);
+  renderOrder(order);
 }
 
 function updateTotal() {
@@ -111,8 +119,43 @@ function updateTotal() {
     total += order.price;
   }
 
-  let orderTotal = document.querySelector("#orders:firstChild");
+  let orderTotal = document.querySelector("#orders li:first-child");
   orderTotal.innerText = `Order Totals: ${total}`;
 }
 
 updateTotal();
+
+const form = document.getElementById("order_form");
+console.log(form);
+
+function addOrder(event) {
+  event.preventDefault();
+
+  let form = event.target;
+
+  let username = form["username"].value;
+  let fringe = form["fringe"].value;
+  let usersize = form["usersize"].value;
+
+  console.log(username, fringe, usersize);
+
+  if (fringe == "yes") {
+    fringe = true;
+  } else {
+    fringe = false;
+  }
+
+  usersize = Number(usersize);
+
+  let order = {
+    name: username,
+    fringe: fringe,
+    size: usersize,
+  };
+  orders.push(order);
+
+  renderOrder(order);
+  updateTotal();
+}
+
+form?.addEventListener("submit", addOrder);

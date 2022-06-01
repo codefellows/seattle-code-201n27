@@ -121,3 +121,19 @@ for (let i = 0; i < allPets.length; i++) {
   const pet = allPets[i];
   render(pet);
 }
+
+function addPet(event) {
+  event.preventDefault();
+  let form = event.target;
+
+  let petname = form["petname"].value;
+  let species = form["species"].value;
+  let color = form["color"].value;
+
+  let pet = { name: petname, species: species, color: color };
+
+  allPets.push(pet);
+  render(pet);
+}
+
+document.getElementById("pets")?.addEventListener("submit", addPet);
