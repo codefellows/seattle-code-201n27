@@ -114,3 +114,5 @@ function updateTotal() {
   let orderTotal = document.querySelector("#orders:firstChild");
   orderTotal.innerText = `Order Totals: ${total}`;
 }
+
+updateTotal();
