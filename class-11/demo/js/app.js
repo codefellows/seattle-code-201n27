@@ -58,9 +58,97 @@ function processForm(event) {
   let expiration = form.expiration.value;
 
   let newPotato = new Potato(variety, volume, expiration);
-  newPotato.render()
+  newPotato.render();
 
-  form.variety.value = null;  
-  form.volume.value = null;  
-  form.expiration.value = null;  
+  form.variety.value = null;
+  form.volume.value = null;
+  form.expiration.value = null;
+
+  // Save the created potato to local storage
+  newPotato.save();
+}
+
+// Lecture Plan:
+// 1. First talk about JSON methods
+// 2. Local storage methods
+// 3. Add .save() method to Potato objects
+// 4. Render all localStorage saved Potato objects on page load
+
+// Save:
+// Step 1: JSON.stringify(value)
+// Step 2: localStorage.setItem('key', value)
+
+// Retrieve:
+// Step 3: localStorage.getItem('key')
+// Step 4: JSON.parse(value)
+
+// let test = new Potato("test potato", 100, "1 day");
+// // test.render();
+// console.log(test);
+
+// // 1.
+// test = JSON.stringify(test);
+// // console.log(test);
+
+// // 2.
+// localStorage.setItem('savedPotato11234', test);
+
+// // Setting to the same key overwrites the value
+// // localStorage.setItem('savedPotato', 'junk data');
+
+// // 3.
+// let retrievedPotato = localStorage.getItem('savedPotato');
+
+// // 4.
+// retrievedPotato = JSON.parse(retrievedPotato);
+// console.log(retrievedPotato);
+
+if (localStorage.getItem("savedPotato")) {
+  let retrievedData = localStorage.getItem("savedPotato");
+  let parsed = JSON.parse(retrievedData);
+
+  let tempVariety = parsed.variety;
+  let tempVolume = parsed.volume;
+  let tempExpiration = parsed.expiration;
+
+  let tempPotato = new Potato(tempVariety, tempVolume, tempExpiration);
+  tempPotato.render();
+}
+
+Potato.prototype.save = function () {
+  // save an empty array if first potato
+  if (localStorage.getItem("savedPotatoes") === null) {
+    let emptyArray = JSON.stringify([]);
+    localStorage.setItem("savedPotatoes", emptyArray);
+  }
+
+  // push potato from form into array
+  let retrievedPotatoes = localStorage.getItem("savedPotatoes");
+  retrievedPotatoes = JSON.parse(retrievedPotatoes);
+  // important!
+  retrievedPotatoes.push(this);
+
+  // stringify and save array into localStorage
+  let savedPotatoes = JSON.stringify(retrievedPotatoes);
+  // this array has our user created potato inside of it
+  localStorage.setItem("savedPotatoes", savedPotatoes);
+};
+
+if (localStorage.getItem("savedPotatoes")) {
+  let retrievedData = localStorage.getItem("savedPotatoes");
+  retrievedData = JSON.parse(retrievedData);
+
+  console.log(retrievedData);
+  // our next goal is to render!
+  for (let i = 0; i < retrievedData.length; i++) {
+    // retrievedData[0].variety
+    let retrievedDatum = retrievedData[i];
+    let tempVariety = retrievedDatum.variety;
+    let tempVolume = retrievedDatum.volume;
+    let tempExpiration = retrievedDatum.expiration;
+
+    // console.log(tempVariety, tempVolume, tempExpiration);
+    let tempPotato = new Potato(tempVariety, tempVolume, tempExpiration);
+    tempPotato.render();
+  }
 }
