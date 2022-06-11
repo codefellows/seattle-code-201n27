@@ -79,3 +79,69 @@ function addClickHandler(i) {
 addClickHandler(0);
 addClickHandler(1);
 addClickHandler(2);
+
+let colors = [
+  { name: "Red", votes: 12 },
+  { name: "Blue", votes: 19 },
+  { name: "Yellow", votes: 3 },
+  { name: "Green", votes: 5 },
+  { name: "Purple", votes: 2 },
+  { name: "Orange", votes: 3 },
+];
+
+function showChart() {
+  const ctx = document.getElementById("myChart").getContext("2d");
+
+  // Need to work with myChart.data - the constructor takes the ctx (reference
+  // to HTML), and an object. We need to build the labels and the data for the
+  // configuration object.
+
+  let labels = [];
+  let votes = [];
+  // loop through colors
+  for (let i = 0; i < colors.length; i++) {
+    let color = colors[i];
+    labels.push(color.name);
+    votes.push(color.votes);
+  }
+
+  const myChart = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: labels,
+      // labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange']
+      datasets: [
+        {
+          label: "# of Votes",
+          data: votes,
+          backgroundColor: [
+            "rgba(255, 99, 132, 0.2)",
+            "rgba(54, 162, 235, 0.2)",
+            // 'rgba(255, 206, 86, 0.2)',
+            // 'rgba(75, 192, 192, 0.2)',
+            // 'rgba(153, 102, 255, 0.2)',
+            // 'rgba(255, 159, 64, 0.2)'
+          ],
+          borderColor: [
+            "rgba(255, 99, 132, 1)",
+            "rgba(54, 162, 235, 1)",
+            // 'rgba(255, 206, 86, 1)',
+            // 'rgba(75, 192, 192, 1)',
+            // 'rgba(153, 102, 255, 1)',
+            // 'rgba(255, 159, 64, 1)'
+          ],
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+}
+
+showChart();
