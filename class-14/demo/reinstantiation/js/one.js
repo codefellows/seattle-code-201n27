@@ -1,12 +1,14 @@
-'use strict';
+"use strict";
 
-if (localStorage.cats) {
-  const catsFromLS = JSON.parse(localStorage.cats);
-  // catsFromLS is now an array of generic objects
-  for (let i = 0; i < catsFromLS.length; i++) {
-    new Cat(catsFromLS[i].name);
-    allCats[i].render();
-  }
+const catform = document.getElementById("catform");
+
+// TODO: If local storage has cats, load them from localStorage
+// TODO: Render loaded cats
+
+function handleCatSubmit(e) {
+  // TODO: Create a new cat
+  // TODO: Render the cat
+  // TODO: Save allCats to local storage
 }
 
-catform.addEventListener('submit', handleCatSubmit);
+// TODO: Add form submit event listener

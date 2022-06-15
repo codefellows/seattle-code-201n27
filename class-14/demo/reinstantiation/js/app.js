@@ -1,24 +1,17 @@
-'use strict';
+"use strict";
 
-const allCats = [];
-const catform = document.getElementById('catform');
-const catlist = document.getElementById('catlist');
+const catlist = document.getElementById("catlist");
 
-function Cat(name){
-  this.name = name;
-  this.render = function(){
-    const listItem = document.createElement('li');
-    listItem.textContent = this.name;
-    catlist.appendChild(listItem);
-  },
-  allCats.push(this);
+// TODO: Cat Constructor with name
+
+// TODO: Cat render method (append to `catlist`)
+
+function loadCats() {
+  // TODO: Load cats from local storage
+  // TODO: Make them instances of the Cat constructor
+  // TODO: Return cats list
 }
 
-function handleCatSubmit(e){
-  e.preventDefault();
-  const newCat = new Cat(e.target.kitteh.value);
-  catform.reset();
-  newCat.render();
-  localStorage.cats = JSON.stringify(allCats);
-  console.log('this is what is in local storage', localStorage.cats);
+function saveCats(cats) {
+  // TODO: Write cats list to local storage
 }
