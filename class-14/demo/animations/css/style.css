@@ -14,38 +14,38 @@ img {
 }
 
 /*transform distorts elements from their original size/shape/position. 'transform' is the property name; it can have different values, like rotate, scale, skew, and translate (like relative positioning, translate moves it to a new place, relative to its old one)*/
-/*
+
 img:first-child:hover {
   transform: rotate(30deg);
 }
 
 img:last-child:hover {
   transform: rotate(330deg);
-}*/
-/*
+}
+
 img:first-child:hover {
   transform: scale(1.5);
 }
 
 img:last-child:hover {
-  transform: scale(.5);
-}*/
+  transform: scale(0.5);
+}
 
-/*img:first-child:hover {
+img:first-child:hover {
   transform: translateX(50px);
 }
 
 img:last-child:hover {
   transform: translate(-50px, 100px);
-}*/
+}
 
-/*img:first-child:hover {
-  transform: skewX(30deg);
+img:first-child:hover {
+  transform: translateX(50px) rotate(30deg);
 }
 
 img:last-child:hover {
-  transform: skew(30deg, 30deg);
-}*/
+  transform: rotate(30deg) translateX(50px);
+}
 
 /*transitions alter the appearance of an element when the state changes. You use pseudo-selectors to target different states (like :hover :focus :active and :target ).
 there are three major properties to set when you use a transition:
@@ -63,7 +63,7 @@ there are three major properties to set when you use a transition:
 
 .rounding:hover {
   transition-property: border-radius, background-color;
-  transition-duration: 2s, 2s;
+  transition-duration: 2s, 4s;
   transition-timing-function: linear, linear;
   border-radius: 50%;
   background-color: #f03c1d;
@@ -109,22 +109,32 @@ there are three major properties to set when you use a transition:
   0% {
     left: 0;
     top: 0;
+    transform: skew(-30deg);
   }
   25% {
     left: 90%;
     top: 25%;
+    transform: skew(50deg);
   }
   50% {
     left: 0%;
     top: 50%;
+    transform: skew(-30deg);
   }
   75% {
     left: 90%;
     top: 75%;
+    transform: skew(70deg);
   }
-  100% {
+  90% {
     left: 0%;
     top: 90%;
+    transform: skew(-10deg);
+  }
+  100% {
+    left: 0;
+    top: 0;
+    transform: skew(-30deg);
   }
 }
 
@@ -139,14 +149,14 @@ there are three major properties to set when you use a transition:
   position: relative;
 }
 
-/* img:first-child {
+img:first-child {
   animation-duration: 5s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-name: moveRight;
   position: absolute;
   z-index: 10;
-} */
+}
 
 @keyframes blinkAnimation {
   0% {
